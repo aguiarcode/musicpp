@@ -27,9 +27,8 @@ A minimalist terminal music visualizer.
 ## Build
 
 ```bash
-cmake -B build
-cmake --build build
-./build/musicpp
+xmake
+xmake run
 ```
 
 ---

@@ -10,10 +10,8 @@ out/
 *.so
 *.dylib
 
-# CMake
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
+# xmake
+.xmake/
 compile_commands.json
 
 # IDE
