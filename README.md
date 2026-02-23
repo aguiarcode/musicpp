@@ -4,10 +4,17 @@ A minimalist terminal music visualizer. One line. Reacts to whatever is playing 
 
 ```
 
-          ╭──╮                        ╭─╮
-──────────╯    ╰──────────────────────╯   ╰───────
-                         ╭──╮
-─────────────────────────╯   ╰────────────────────
+        Radiohead — Weird Fishes/ Arpeggi
+
+
+             ╭─╮                 ╭──╮
+─────────────╯  ╰────────────────╯   ╰──────────────────╮
+                                                         │
+─────────────────────────────────────────────────────────╯
+         ╭──╮                              ╭─╮
+─────────╯   ╰──────────────────────────╮  ╰────────────
+                                        │
+────────────────────────────────────────╯
 ```
 
 Play anything. The line moves with it.
@@ -64,6 +71,9 @@ src/
 ├── loopback/              # system audio capture via miniaudio
 │   ├── Loopback.h
 │   └── Loopback.cpp
+├── metadata/              # track name via Windows Media Session / MPRIS
+│   ├── Metadata.h
+│   └── Metadata.cpp
 ├── dsp/                   # FFT, signal processing
 │   ├── FFT.h
 │   └── FFT.cpp
