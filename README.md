@@ -28,7 +28,6 @@ The line is calm when music is quiet. It surges at the drop. Silence is flat —
 
 | Library | Purpose |
 |---|---|
-| [miniaudio](https://miniaud.io/) | cross-platform audio capture — header only |
 | [kissfft](https://github.com/mborgerding/kissfft) | FFT — header only |
 | [FTXUI](https://github.com/ArthurSonzogni/FTXUI) | terminal rendering |
 
@@ -49,9 +48,6 @@ cmake --build build
 ```
 src/
 ├── main.cpp
-├── audio/          # capture audio from system or microphone
-│   ├── AudioCapture.h
-│   └── AudioCapture.cpp
 ├── dsp/            # FFT and signal processing
 │   ├── FFT.h
 │   └── FFT.cpp
