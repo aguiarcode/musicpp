@@ -2,6 +2,14 @@
 
 A minimalist terminal music visualizer.
 
+On launch, a needle drop fades in — then out as music starts.
+
+```
+        ╲
+         ╲
+    ───────●
+```
+
 ```
   Radiohead — Weird Fishes/ Arpeggi
 
