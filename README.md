@@ -1,6 +1,6 @@
 # musicpp
 
-A minimalist terminal music visualizer. One line. Reacts to music. Nothing else.
+A minimalist terminal music visualizer. One line. Reacts to whatever is playing on your device.
 
 ```
 
@@ -10,7 +10,7 @@ A minimalist terminal music visualizer. One line. Reacts to music. Nothing else.
 ─────────────────────────╯   ╰────────────────────
 ```
 
-The line is calm when music is quiet. It surges at the drop. Silence is flat — not absent.
+Play anything. The line moves with it.
 
 ---
 
@@ -24,10 +24,21 @@ The line is calm when music is quiet. It surges at the drop. Silence is flat —
 
 ---
 
+## How audio works
+
+Captures system audio via loopback — whatever is playing through your speakers or headphones. No microphone involved.
+
+- **Windows** — WASAPI loopback, works out of the box
+- **Linux** — PulseAudio/PipeWire monitor source
+- **macOS** — requires [BlackHole](https://github.com/ExistentialAudio/BlackHole)
+
+---
+
 ## Dependencies
 
 | Library | Purpose |
 |---|---|
+| [miniaudio](https://miniaud.io/) | system audio loopback — header only |
 | [kissfft](https://github.com/mborgerding/kissfft) | FFT — header only |
 | [FTXUI](https://github.com/ArthurSonzogni/FTXUI) | terminal rendering |
 
@@ -48,13 +59,18 @@ cmake --build build
 ```
 src/
 ├── main.cpp
-├── dsp/            # FFT and signal processing
+├── app.h / app.cpp        # main loop
+├── app_state.h            # shared state
+├── loopback/              # system audio capture via miniaudio
+│   ├── Loopback.h
+│   └── Loopback.cpp
+├── dsp/                   # FFT, signal processing
 │   ├── FFT.h
 │   └── FFT.cpp
-├── renderer/       # terminal output, braille encoding
+├── renderer/              # terminal output, braille encoding
 │   ├── Terminal.h
 │   └── Terminal.cpp
-└── visualizer/     # line geometry, wave interpolation, decay
+└── visualizers/           # the line — geometry, interpolation, decay
     ├── LineVisualizer.h
     └── LineVisualizer.cpp
 ```
